@@ -45,4 +45,23 @@ contract SinglePoolStaking is IStaking,StakingEvents,Ownable,ReentrancyGuard{
 
     }
 
+    function updatePool() public{
+
+        if(block.timestamp<=lastUpdateTime){
+            return;
+        }
+
+        if(totalStaked == 0){
+            lastUpdateTime=block.timestamp;
+            return;
+        }
+
+        uint256 timeElapsed = block.timestamp - lastUpdateTime;
+
+        uint256 reward = timeElapsed *rewardRate;
+
+        accRewardPerShare+= (reward*PRECISION)/totalStaked;
+        lastUpdateTime = block.timestamp;
+    }
+
 }
