@@ -12,5 +12,5 @@ interface IStaking{
 
     function pendingRewards(address _user) external view returns (uint256);
     function balanceOf(address _user) external view returns (uint256);
-    function totalStaked() external view returns (uint256);
+    function totalStakedAmount() external view returns (uint256);
 }

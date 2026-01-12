@@ -11,7 +11,7 @@ abstract contract StakingEvents{
 
     event RewardRateUpdated(uint256 _oldRate, uint256 _newRate);
     event RewardsFunded(address indexed _funder,uint256 _amount);
-    event Paused(address indexed _admin);
-    event Unpaused(address indexed _admin);
+    event PoolPaused(address indexed _admin);
+    event PoolUnpaused(address indexed _admin);
 
 }
